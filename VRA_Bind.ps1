@@ -7,7 +7,7 @@ $creds = New-Object System.Management.Automation.PSCredential $user,$pswd
 $configVRA = @{
     connect = ""
     line1 = "C:\VRMGuestAgent\WinService.exe -u;shutdown -r -t 00 -f"
-    line2 = "C:\VRMGuestAgent\WinService.exe -i -h SERVER -p ssl"
+    line2 = "C:\VRMGuestAgent\WinService.exe -i -h SERVERTOBINDTO -p ssl"
     restart = "Restart-Computer -Wait"
 }
 
