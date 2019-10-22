@@ -94,7 +94,7 @@ function Set-TNSNAME {
 					
                     process {
                         if (Test-Path -path $path) {
-                            Write-Host -MessageData "Suppression du dossier $path."
+                            Write-Host -MessageData "Deletion of $path."
                             Remove-Item -Path $path -Recurse -Force
                         }
                     }
@@ -133,12 +133,12 @@ function Test-PingComputer {
         $retValue = $true
     }
     else {
-        Write-Host "Le serveur $computer n'est pas en ligne."
+        Write-Host "Server $computer offline."
         $retValue = $false
     }
     return $retValue
 }
 
 
-$servers = "$PSScriptRoot\serveurs.txt"
+$servers = "$PSScriptRoot\servers.txt"
 (Get-Content $servers) | Where-Object { $_.trim() -ne "" -and ((Test-PingComputer $_) -eq $true) } | Set-TNSNAME
